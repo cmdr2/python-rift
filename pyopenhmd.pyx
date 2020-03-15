@@ -5,6 +5,8 @@ cdef extern from "OpenHMD.h":
         OpenHMD()
         
         vector[float] rotation
+        vector[float] acceleration
+        vector[float] gyro
         vector[float] leftprojectionmatrix
         vector[float] leftviewmatrix
         vector[float] rightprojectionmatrix
@@ -41,6 +43,10 @@ cdef class PyOpenHMD:
 
     property rotation:
       def __get__(self): return self.thisptr.rotation
+    property acceleration:
+      def __get__(self): return self.thisptr.acceleration
+    property gyro:
+      def __get__(self): return self.thisptr.gyro
     property leftprojectionmatrix:
       def __get__(self): return self.thisptr.leftprojectionmatrix
     property leftviewmatrix:

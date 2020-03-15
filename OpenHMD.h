@@ -12,6 +12,8 @@ class OpenHMD {
   ~OpenHMD();
 
   std::vector<float> rotation;
+  std::vector<float> acceleration;
+  std::vector<float> gyro;
   std::vector<float> leftprojectionmatrix;
   std::vector<float> leftviewmatrix;
   std::vector<float> rightprojectionmatrix;

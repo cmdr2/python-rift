@@ -7,8 +7,9 @@ from Cython.Distutils import build_ext
 module1 = Extension("openhmd", 
     ["pyopenhmd.pyx", "OpenHMD.cpp"],
     language="c++",
-    libraries=["openhmd"],
-    include_dirs=['/usr/include/openhmd'])
+    libraries=["hidapi-libusb"],
+    extra_objects=["lib/libopenhmd.a"],
+    include_dirs=['lib/'])
  
 setup(name = 'openhmd',
     version = '1.0',

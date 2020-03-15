@@ -10,6 +10,12 @@ while True:
     foo.rotation[1], 
     foo.rotation[2], 
     foo.rotation[3]))
+  print("acc vec: %f %f %f" % (foo.acceleration[0],
+    foo.acceleration[1],
+    foo.acceleration[2]))
+  print("gyro vec: %f %f %f" % (foo.gyro[0],
+    foo.gyro[1],
+    foo.gyro[2]))
   print("left projection matrix: %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f" % (foo.leftprojectionmatrix[0], 
     foo.leftprojectionmatrix[1], 
     foo.leftprojectionmatrix[2], 

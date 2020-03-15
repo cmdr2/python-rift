@@ -6,6 +6,8 @@
 
 OpenHMD::OpenHMD() {
   rotation = std::vector<float>(4);
+  acceleration = std::vector<float>(3);
+  gyro = std::vector<float>(3);
   leftprojectionmatrix = std::vector<float>(16);
   rightprojectionmatrix = std::vector<float>(16);
   leftviewmatrix = std::vector<float>(16);
@@ -90,12 +92,22 @@ void OpenHMD::printSensors() {
 
 void OpenHMD::poll() {
     float rot[4];
+    float acc[3];
+    float gy[3];
     float matrix[16];
 		ohmd_ctx_update(ctx);
 		//Rotation Quaternion
 		ohmd_device_getf(hmd, OHMD_ROTATION_QUAT, rot);
 		for(int i = 0; i < 4; i++)
 		  rotation[i] = rot[i];
+
+                ohmd_device_getf(hmd, OHMD_ACCELEROMETER, acc);
+                for(int i = 0; i < 3; i++)
+                  acceleration[i] = acc[i];
+
+                ohmd_device_getf(hmd, OHMD_ROTATION_QUAT, gy);
+                for(int i = 0; i < 3; i++)
+                  gyro[i] = gy[i];
 
 		//Left Projection Matrix
 		ohmd_device_getf(hmd, OHMD_LEFT_EYE_GL_PROJECTION_MATRIX, matrix);
